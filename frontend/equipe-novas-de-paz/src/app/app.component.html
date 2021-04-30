@@ -1,0 +1,43 @@
+<!-- <header class="p-3 mb-3">
+    <div class="container">
+        <header class="container-fluid d-grid gap-3 align-items-center">
+            <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+
+            <div class="d-flex align-items-center">
+                <app-login-header style="display: contents;"></app-login-header>
+            </div>
+        </header>
+    </div>
+</header> -->
+
+<header class="py-3 mb-3 border-bottom">
+    <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
+        <a class="dropdown d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none" [routerLink]="['/songs']">
+            <img src="../assets/logo.jpeg" alt="mdo" width="40" height="40" class="rounded-circle">
+            <h3 style="margin: 0;">Equipe Novas de Paz</h3>
+        </a>
+
+        <div class="d-flex align-items-center">
+            <form class="w-100 me-3">
+
+            </form>
+
+            <div class="flex-shrink-0 dropdown" style="display: contents;">
+                <app-login-header style="display: contents;"></app-login-header>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <app-login></app-login>
+</div>
+<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <app-create></app-create>
+</div>
+
+<body style="margin: 0 10rem;">
+    <router-outlet></router-outlet>
+</body>

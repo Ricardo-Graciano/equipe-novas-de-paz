@@ -1,0 +1,34 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Criar conta</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeModalButton"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formCreationUser">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nome</label>
+                    <input type="email" class="form-control" id="name" required formControlName="name" placeholder="Ana Maria">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" required formControlName="email" placeholder="ana@gmail.com">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="password" formControlName="password" placeholder="******">
+                </div>
+                <div class="mb-3">
+                    <label for="passwordConfirmation" class="form-label">Confirmar Senha</label>
+                    <input type="password" class="form-control" id="passwordConfirmation" formControlName="passwordConfirmation" placeholder="Digite a mesma senha do campo superior.">
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" [disabled]="this.pending" type="button" (click)="handleSaveBtnClick()">
+                <span *ngIf="this.pending" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Criar
+              </button>
+        </div>
+    </div>
+</div>

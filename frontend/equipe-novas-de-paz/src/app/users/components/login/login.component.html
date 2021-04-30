@@ -1,0 +1,26 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Login</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeModalButton"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formUser">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" formControlName="email">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="password" formControlName="password">
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" [disabled]="this.pending" type="button" (click)="handleBtnClick()">
+                <span *ngIf="this.pending" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Login
+              </button>
+        </div>
+    </div>
+</div>

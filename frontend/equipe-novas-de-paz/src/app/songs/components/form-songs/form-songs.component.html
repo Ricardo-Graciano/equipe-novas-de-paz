@@ -1,0 +1,30 @@
+<form [formGroup]="formSong">
+    <div class="mb-3">
+        <label for="title" class="form-label">Título</label>
+        <input class="form-control" id="title" formControlName="title">
+    </div>
+    <div class="mb-3">
+        <label for="singer" class="form-label">Cantor</label>
+        <input class="form-control" id="singer" formControlName="singer" />
+    </div>
+    <div class="mb-3">
+        <label for="key" class="form-label">Tom</label>
+        <input class="form-control" id="key" formControlName="key" />
+    </div>
+    <div class="mb-3">
+        <label for="lyrics" class="form-label">Letra</label>
+        <textarea class="form-control" id="lyrics" rows="15" formControlName="lyrics"></textarea>
+    </div>
+</form>
+
+<section style="margin-bottom: 2rem;">
+    <button class="btn btn-primary" [disabled]="this.savePending" type="button" (click)="handleSaveBtnClick()">
+        <span *ngIf="this.savePending" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Salvar
+    </button>
+
+    <button class="btn btn-outline-danger" *ngIf="isEditingPage" [disabled]="this.deletePending" type="button" (click)="handleDeleteBtnClick()" style="margin-left: 0.5rem;">
+        <span *ngIf="this.deletePending" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Excluir música
+    </button>
+</section>

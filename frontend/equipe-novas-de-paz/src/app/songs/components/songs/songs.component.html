@@ -1,0 +1,37 @@
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-primary" type="button" (click)="redirectToAddNewSong()"><i class="fas fa-plus"
+            style="margin-right: 0.5rem;"></i>Adicionar música</button>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Título</th>
+            <th scope="col">Cantor</th>
+            <th scope="col">Tom</th>
+            <th scope="col">Letra</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let song of this.songs">
+            <td>{{song.title}}</td>
+            <td>{{song.singer}}</td>
+            <td>{{song.key}}</td>
+            <td class="text-truncate" style="max-width: 50vw;">{{song.lyrics}}</td>
+            <td style="text-align: center;">
+                <button class="btn btn-outline-primary" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Mais informações" (click)="redirectToEditNewSong(song._id)" style="margin-right: 0.5rem;"><i class="fas fa-plus"></i></button>
+                <button class="btn btn-outline-success" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Imprimir" style="margin-right: 0.5rem;"><i class="fas fa-print"></i></button>
+            </td>
+        </tr>
+        <tr *ngIf="!this.songs.length">
+            <td colspan="4">Nenhuma música foi adicionada ainda!</td>
+        </tr>
+</table>
+<div class="toast align-items-center text-white bg-primary border-0 " role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex top-0 end-0">
+        <div class="toast-body">
+            Hello, world! This is a toast message.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+</div>

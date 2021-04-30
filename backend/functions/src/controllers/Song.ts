@@ -40,6 +40,23 @@ export class SongController {
             })
     }
     
+    async show(req: Request, res: Response): Promise<Response | undefined> {
+        const { _id } = req.params
+        return Song.findOne({ _id })
+            .then(suc => {
+                return res.json({
+                    status: 200,
+                    song: suc
+                })
+            })
+            .catch(err => {
+                return res.status(400).json({
+                    status: 400,
+                    error: err
+                })
+            })
+    }
+    
     async update(req: Request, res: Response): Promise<Response | undefined> {
         const { _id } = req.params
         const body = req.body

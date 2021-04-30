@@ -22,6 +22,7 @@ routes.route('/songs')
     .get(songController.index)
 
 routes.route('/songs/:_id')
+    .get(songController.show)
     .put(authToken.AuthUser, authToken.AdminUser, songController.update)
     .delete(authToken.AuthUser, authToken.AdminUser, songController.destroy)
 

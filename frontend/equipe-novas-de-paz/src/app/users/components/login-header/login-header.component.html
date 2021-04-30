@@ -1,0 +1,21 @@
+<ng-container *ngIf="!this._US.isUserLogged(); else loggedUserTemplate">
+    <div class="col-md-3 text-end">
+        <button type="button" id="loginBtn" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Entrar</button>
+        <button type="button" id="signUpBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signUpModal">Cadastrar-se</button>
+    </div>
+
+</ng-container>
+<ng-template #loggedUserTemplate>
+    <div class="btn-group col-md-3 text-end">
+        <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Bem vindo(a), {{this._US.getUserName()}}
+        </button>
+        <ul class="dropdown-menu">
+            <li (click)="this._US.logout()">
+                <a class="dropdown-item" href="#">
+                    <i class="fas fa-sign-out-alt"></i> Sair
+                </a>
+            </li>
+        </ul>
+    </div>
+</ng-template>
